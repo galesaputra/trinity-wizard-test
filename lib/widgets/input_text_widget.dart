@@ -42,7 +42,7 @@ class InputTextWidget extends StatelessWidget {
       this.onChanged,
       this.onEditingComplete,
       this.isSecureText = false,
-      this.textInputAction,
+      this.textInputAction = TextInputAction.next,
       this.validator,
       this.suffixIcon,
       this.prefixIcon,
@@ -118,7 +118,9 @@ class InputTextWidget extends StatelessWidget {
             },
         onSaved: onSaved,
         onChanged: onChanged,
-        onEditingComplete: () => onEditingComplete,
+        onEditingComplete: () {
+          FocusScope.of(context).nextFocus();
+        },
         initialValue: initialValue,
       ),
     );

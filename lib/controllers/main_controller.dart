@@ -24,10 +24,10 @@ class MainController extends GetxController {
   }
 
   void loadContactData(ContactModel data) {
-    firstName.text = data.firstName!;
-    lastName.text = data.lastName!;
-    email.text = data.email!;
-    dob.text = data.dob!;
+    firstName.text = data.firstName ?? "";
+    lastName.text = data.lastName ?? "";
+    email.text = data.email ?? "";
+    dob.text = data.dob ?? "";
   }
 
   Future<void> updateDummyData(ContactModel data) async {
