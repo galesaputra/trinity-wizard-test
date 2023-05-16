@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _builBody() {
     return RefreshIndicator(
-      onRefresh: _controller.readDummyJson,
+      onRefresh: _controller.refreshDummyData,
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Obx(

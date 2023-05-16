@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,5 +44,10 @@ class MainController extends GetxController {
     });
     _listContact.refresh();
     Fluttertoast.showToast(msg: "Success Update");
+  }
+
+  Future<void> refreshDummyData() async {
+    _listContact.refresh();
+    Fluttertoast.showToast(msg: "Success Refresh Data");
   }
 }
