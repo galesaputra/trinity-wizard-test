@@ -42,7 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
-                onTap: () => Navigation().toContactForm(),
+                onTap: () =>
+                    Navigation().toContactForm(_controller.listContact[index]),
                 child: Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(

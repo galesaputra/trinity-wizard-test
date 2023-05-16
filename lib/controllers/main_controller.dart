@@ -22,4 +22,24 @@ class MainController extends GetxController {
     _listContact.value = List<ContactModel>.from(
         _data.map((model) => ContactModel.fromJson(model)));
   }
+
+  void loadContactData(ContactModel data) {
+    firstName.text = data.firstName!;
+    lastName.text = data.lastName!;
+    email.text = data.email!;
+    dob.text = data.dob!;
+  }
+
+  Future<void> updateDummyData(ContactModel data) async {
+    _listContact.every((element) {
+      if (element.id == data.id) {
+        element.firstName = firstName.text;
+        element.lastName = lastName.text;
+        element.email = email.text;
+        element.dob = dob.text;
+      }
+      return true;
+    });
+    _listContact.refresh();
+  }
 }

@@ -22,12 +22,25 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   final MainController _controller = Get.find();
 
   @override
+  void initState() {
+    _controller.loadContactData(widget.data!);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: TextWidget('aaa'),
-        leading: TextWidget('Cancel'),
-        actions: [TextWidget('Save')],
+        leading: InkWell(
+          onTap: () => Get.back(),
+          child: TextWidget('Cancel'),
+        ),
+        actions: [
+          InkWell(
+            onTap: (() => _controller.updateDummyData(widget.data!)),
+            child: TextWidget('Save'),
+          ),
+        ],
         centerTitle: true,
       ),
       body: Column(
