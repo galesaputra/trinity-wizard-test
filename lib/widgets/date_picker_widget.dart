@@ -23,6 +23,7 @@ class DatePickerWIdget extends StatelessWidget {
   final double fontSize;
   final TextAlign textAlign;
   final double verticalPadding;
+  // ignore: annotate_overrides
   final Key? key;
 
   DatePickerWIdget(
