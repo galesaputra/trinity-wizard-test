@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trinity_wizard_project/utils/colors.dart';
 
 class AvatarWidget extends StatelessWidget {
   const AvatarWidget({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class AvatarWidget extends StatelessWidget {
       width: 100,
       height: 100,
       decoration: const BoxDecoration(
-        color: Color(0xffff8c00),
+        color: ConstColor.primary,
         shape: BoxShape.circle,
       ),
     );

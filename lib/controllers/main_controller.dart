@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:trinity_wizard_project/models/contact_model.dart';
 
@@ -41,5 +42,6 @@ class MainController extends GetxController {
       return true;
     });
     _listContact.refresh();
+    Fluttertoast.showToast(msg: "Success Update");
   }
 }
