@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TextWidget extends StatelessWidget {
   final dynamic title;
@@ -38,7 +37,7 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title.toString(),
-      style: GoogleFonts.inter(
+      style: TextStyle(
           color: color,
           fontSize: fontSize,
           fontWeight: isBold ? FontWeight.w600 : fontWeight,

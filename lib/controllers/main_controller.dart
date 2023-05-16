@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +17,7 @@ class MainController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController dob = TextEditingController();
 
-  Future<void> readDummyJson() async {
+  void readDummyJson() async {
     final String _response =
         await rootBundle.loadString('lib/assets/data.json');
     final List<dynamic> _data = await json.decode(_response);
@@ -32,7 +32,7 @@ class MainController extends GetxController {
     dob.text = data.dob ?? "";
   }
 
-  Future<void> updateDummyData(ContactModel data) async {
+  void updateDummyData(ContactModel data) {
     _listContact.every((element) {
       if (element.id == data.id) {
         element.firstName = firstName.text;
@@ -46,8 +46,28 @@ class MainController extends GetxController {
     Fluttertoast.showToast(msg: "Success Update");
   }
 
-  Future<void> refreshDummyData() async {
-    _listContact.refresh();
-    Fluttertoast.showToast(msg: "Success Refresh Data");
+  // Future<void> refreshDummyData() {
+  //   _listContact.refresh();
+  //   Fluttertoast.showToast(msg: "Success Refresh Data");
+  // }
+
+  vShowDatePicker(BuildContext context,
+      {DateTime? selectedDate, DateTime? lastDate}) async {
+    var data = await showDatePicker(
+      context: context,
+      initialDate: selectedDate ?? lastDate ?? DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: lastDate ?? DateTime.now(),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: const ColorScheme.light(primary: Colors.blue),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    return data ?? selectedDate ?? DateTime.now();
   }
 }

@@ -36,57 +36,54 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _builBody() {
-    return RefreshIndicator(
-      onRefresh: _controller.refreshDummyData,
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Obx(
-          () => GridView.builder(
-            itemCount: _controller.listContact.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 18.0,
-              mainAxisSpacing: 18.0,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return InkWell(
-                onTap: () =>
-                    Navigation().toContactForm(_controller.listContact[index]),
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(7),
-                    ),
-                    border: Border.all(
-                      color: const Color.fromRGBO(0, 0, 0, 0.25),
-                    ),
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Obx(
+        () => GridView.builder(
+          itemCount: _controller.listContact.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 18.0,
+            mainAxisSpacing: 18.0,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return InkWell(
+              onTap: () =>
+                  Navigation().toContactForm(_controller.listContact[index]),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(7),
                   ),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration: const BoxDecoration(
-                          color: ConstColor.primary,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      TextWidget(
-                        '${_controller.listContact[index].firstName!} ${_controller.listContact[index].lastName!}',
-                        fontWeight: FontWeight.w500,
-                        overflow: TextOverflow.fade,
-                        align: TextAlign.center,
-                      )
-                    ],
+                  border: Border.all(
+                    color: const Color.fromRGBO(0, 0, 0, 0.25),
                   ),
                 ),
-              );
-            },
-          ),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        color: ConstColor.primary,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextWidget(
+                      '${_controller.listContact[index].firstName!} ${_controller.listContact[index].lastName!}',
+                      fontWeight: FontWeight.w500,
+                      overflow: TextOverflow.fade,
+                      align: TextAlign.center,
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

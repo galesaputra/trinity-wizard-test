@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class InputTextWidget extends StatelessWidget {
   final String? fieldContent;
@@ -73,12 +72,6 @@ class InputTextWidget extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      decoration: isWithShadow!
-          ? const BoxDecoration(boxShadow: <BoxShadow>[
-              BoxShadow(
-                  color: Colors.grey, blurRadius: 30.0, offset: Offset(0, 10))
-            ])
-          : const BoxDecoration(),
       child: TextFormField(
         textAlign: textAlign!,
         readOnly: readOnly!,
@@ -86,8 +79,11 @@ class InputTextWidget extends StatelessWidget {
         controller: textEditingController,
         focusNode: focusNode,
         maxLines: maxLines,
-        style: GoogleFonts.inter(
-            color: color, fontSize: 14, fontWeight: fontWeight),
+        style: TextStyle(
+          color: color,
+          fontSize: 14,
+          fontWeight: fontWeight,
+        ),
         obscureText: isSecureText!,
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,

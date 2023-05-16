@@ -137,7 +137,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                 DatePickerWIdget(
                   hint: "-",
                   onTap: () async {
-                    var data = await Utils.vShowDatePicker(context,
+                    var data = await _controller.vShowDatePicker(context,
                         selectedDate: DateTime.now());
                     _controller.dob.text =
                         DateFormat("dd/MM/yyyy").format(data);
